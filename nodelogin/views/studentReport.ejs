@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendance Report</title>
+	<link rel="stylesheet" type="text/css" href="/studentReport.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" >
+	<nav>
+		<ul>
+			<li><a href="/home">View Attendance Dashboard</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</nav>
+	<h1>Detailed Attendance Report</h1>
+	<div id="attendance-stats">
+		<p>Name: <%= fullName %>  <br>Sap id: <%= sap %> </p>
+	</div>
+    <div>
+        <input type="text" ng-model="filterText" placeholder="Search">
+        <br><br>
+        <table>
+            <tr>
+                <th>SAP ID</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>startTime</th>
+            </tr>
+            <tr ng-repeat="data in attendanceRecords | filter:filterText |orderBy:datee">
+                <td>{{data.sapid}}</td>
+                <td>{{data.shortForm}}</td>
+                <td>{{data.courseName}}</td>
+                <td ng-class="getValueClass(data.status)">{{data.status}}</td>
+                <td>{{data.textDate}}</td>
+                <td>{{data.startTime}}</td>
+            </tr>
+        </table>
+    </div>
+    
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="studentReport.js"></script>
+</body>
+</html>
+

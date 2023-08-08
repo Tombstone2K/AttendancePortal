@@ -1,0 +1,71 @@
+
+
+body {
+    /* background-color: #f2f2f2; */
+    /* background-image: url("gradient.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed; */
+    background: linear-gradient(90deg, #D3CCE3, #E9E4F0) no-repeat;
+    background-attachment: fixed; 
+    
+    font-family: Arial, sans-serif;
+}
+
+/* Login Form Styles */
+
+.login {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #cccccc;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login h1 {
+    color: #333333;
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login label {
+    color: #666666;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+}
+
+.login input[type="submit"] {
+    background-color: #333333;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+.login input[type="submit"]:hover {
+    background-color: #222222;
+}
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Login</title>
+        <link href="/login.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
+	</head>
+	<body>
+        <br><br>
+		<div class="login">
+			<form action="/auth" method="post">
+				<h1>Sign In</h1>
+				<div class="content">
+					<div class="input-field">
+						<input type="number" name="sapid" id="sapid" placeholder="" minlength="11" maxlength ="11" required>
+						<span class="placeholder">Sap ID</span>
+						<span class="focus-border"></span>
+					</div>
+					<div class="input-field">
+						<input type="password" name="password" id="password" placeholder="" required>
+						<span class="placeholder">Password</span>
+						<span class="focus-border"></span>
+					</div>
+					<!-- <a href="#" class="link">Forgot Your Password?</a> -->
+				</div>
+				<div class="action">
+					<button type="submit">Sign In</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

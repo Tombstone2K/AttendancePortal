@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendance Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="/studentDashboard.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" >
+	<nav>
+		<ul>
+            <!-- <li><a href="/attendance">View TEMP</a></li> -->
+            <li><a href="/report">View Detailed Attendance</a></li>
+			<li><a href="/changePassword">Change Password</a></li>
+			<li><a href="/logout?random=<%= Math.random() %>">Logout</a></li>
+		</ul>
+	</nav>
+	<h1>Attendance Dashboard</h1>
+	<div id="attendance-stats">
+		<p>Name: <%= fullName %>  <br>Sap id: <%= sap %> <br>
+            <!-- <br> You have attended {{ attendancePercentage | number:2}}% of your classes this semester. 
+            <br> Defaulter: {{status}} -->
+        </p>
+        <div id="centerize">
+            <div class="circular-progress">
+                <div class="value-container">0%</div>
+            </div>
+        </div>   
+	</div>
+    <table>
+        <tr>
+            <th>Subject Code</th>
+            <th>Subject Name</th>
+            <th>Present</th>
+            <th>Total</th>
+            <th>Percentage</th>
+        </tr>
+        <tr ng-repeat="(key,value) in arrayOfSubjects" ng-class="getValueClass(value)">
+            <td>{{ key }}</td>
+            <td>{{value[2]}}</td>
+            <td>{{ value[0] }}</td>
+            <td>{{ value[1] }}</td>
+            <td>{{ value[0]/value[1]*100 |number:2 }}%</td>
+        </tr>
+    </table>
+    <br><Br><br>
+    <div ng-show="False">
+        <input type="text" ng-model="filterText" placeholder="Search">
+        <br><br><br>
+        <table>
+            <tr>
+                <th>SAP ID</th>
+                <th>Teacher</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>startTime</th>
+            </tr>
+            <tr ng-repeat="data in attendanceRecords | filter:filterText |orderBy:datee">
+                <td>{{data.sapid}}</td>
+                <td>{{data.teacherName}}</td>
+                <td>{{data.shortForm}}</td>
+                <td>{{data.status}}</td>
+                <td>{{data.textDate}}</td>
+                <td>{{data.startTime}}</td>
+            </tr>
+        </table>
+    </div>
+    
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="studentDashboard.js"></script>
+</body>
+</html>
+

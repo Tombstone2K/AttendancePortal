@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    /* background-image: url("gradient.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; */
+    background: linear-gradient(90deg, #D3CCE3, #E9E4F0) no-repeat;
+    background-attachment: fixed;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Login Form Styles */
+
+.login {
+    background-color: #fff;
+    width: 500px;
+    margin: 65px auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login h1 {
+    text-align: center;
+    padding: 35px 35px 0 35px;
+    font-weight: 300;
+}
+
+.login .content {
+    padding: 35px;
+    text-align: center;
+}
+
+.login .input-field {
+    padding: 12px 5px;
+    position: relative;
+}
+
+.login .input-field input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    padding: 10px 1px;
+    border: 0;
+    outline: none;
+    -webkit-transition: all .2s;
+    transition: background-size 0.3s ease;
+    background:
+        linear-gradient(90deg, #222222, #222222) center bottom/0 2px no-repeat,
+        linear-gradient(90deg, #ccc, #ccc) left bottom/100% 2px no-repeat;
+    pointer-events: auto;
+}
+
+/* .login .input-field #sapid ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #4caf50;
+    transition: 0.4s;
+}
+
+#sapid:focus ~ .focus-border,
+.has-content#sapid ~ .focus-border {
+    width: 100%;
+    transition: 0.4s;
+    left: 0;
+}
+
+#sapid ~ label {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 9px;
+    color: #aaa;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+#sapid:focus ~ label,
+.has-content#sapid ~ label {
+    top: -16px;
+    font-size: 12px;
+    color: #4caf50;
+    transition: 0.3s;
+} */
+
+.login .input-field .placeholder {
+    color: #747474;
+    text-transform: uppercase;
+    position: absolute;
+    left: 12px;
+    top: 40%;
+    transition: 
+        top 0.3s ease,
+        font-size 0.3s ease,
+        color 0.3s ease;
+    pointer-events: none;
+}
+
+.login .input-field input:valid,
+.login .input-field input:focus {
+    background-size: 100% 2px, 100% 2px, 100%;
+}
+
+.login .input-field input:valid+ .placeholder,
+.login .input-field input:focus+ .placeholder {
+    top: 0px;
+    font-size: 12px;
+    color: #222;
+}
+
+.login a.link {
+    text-decoration: none;
+    color: #747474;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+}
+
+.login a.link::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.3s ease-out;
+    background-color: #747474;
+}
+
+.login a.link:hover {
+    color: #747474;
+}
+
+.login a.link:hover::before {
+    transform: scaleX(1);
+}
+
+.login .action {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: normal;
+}
+
+.login .action button {
+    width: 100%;
+    border: none;
+    padding: 18px;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: #9c0505;
+    color: #ffffff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    letter-spacing: 0.2px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    font-size: 16px;
+}
+
+.login .action button:hover {
+    background: #660101;
+}

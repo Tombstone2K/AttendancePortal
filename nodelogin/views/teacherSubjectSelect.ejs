@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Subject Select</title>
+	<link rel="stylesheet" type="text/css" href="/teacherSubjectSelect.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" >
+	<nav>
+		<ul>
+            <!-- <li><a href="/markAttendance">View TEMP</a></li> -->
+			<li><a href="/teacher">ReSelect Branch</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</nav>
+	<h1>Select Lecture</h1>
+	<div id="attendance-stats">
+		<p>Branch: <%= branchh.branchFullForm %> SEM <%= branchh.semesterNumber %></p>
+	</div>
+		<div id="noLecDiv" ng-show="nullFlag">
+			<span ng-show="nullFlag" id="noLecSpan">No lectures found</span>
+		</div>
+	<table ng-hide="nullFlag">
+		<tr>
+			<th>Course Name</th>
+			<th>Short Form</th>
+			<th>Date</th>
+			<th>Start Time</th>
+			<th>Mark</th>
+
+		</tr>
+		<tr ng-repeat="(index,data) in lectureInfo">
+			<td>{{data.courseName}}</td>
+			<td>{{data.shortForm}}</td>
+			<td>{{data.datee}}</td>
+			<td>{{data.startTime}}</td>
+			<td><button ng-click="mark(index)" ng-if="data.marked==='F'" class="button">Mark</button><span ng-if="data.marked==='T'">Done</span></td>
+
+		</tr>
+	</table>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="teacherSubjectSelect.js"></script>
+</body>
+</html>
+

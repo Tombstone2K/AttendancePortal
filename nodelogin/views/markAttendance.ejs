@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mark Attendance</title>
+	<link rel="stylesheet" type="text/css" href="/markAttendance.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" >
+	<nav>
+		<ul>
+			<li><a href="/teacher">ReSelect Branch</a></li>
+			<li><a href="/selectLecture">ReSelect Lecture</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</nav>
+	<h1>Mark Attendance</h1>
+	<div id="attendance-stats">
+		<p>Subject Name: <%= coursee.courseName %><br>
+			Date: {{todaysDate}}<br>
+		Start Time: <%= coursee.startTime %></p>
+	</div>
+	<br>
+    <!-- {{studentList}}
+	<br><br>
+	{{arrayOfStudents}}
+	<br><br><br> -->
+	<table>
+		<tr>
+			<th>SAPID</th>
+			<th>ROLLNO</th>
+			<th>NAME</th>
+			<th>PRESENT ?<input type="checkbox" ng-model="checkAll" ng-change="checkAllFunc()"></th>
+		</tr>
+		<tr ng-repeat="(key,value) in arrayOfStudents" ng-class="getValueClass(arrayOfStudents[key][0])">
+			<td>{{key}}</td>
+			<Td>{{arrayOfStudents[key][2]}}</Td>
+			<td>{{arrayOfStudents[key][1]}}</td>
+			<td >
+				<div class="checkbox">
+					<input type="checkbox"  ng-model="arrayOfStudents[key][0]" ng-change="toggleSelection()">
+					<svg viewBox="0 0 35.6 35.6">
+						<circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+						<circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+						<polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+					  </svg>
+				</div>
+				<!-- <input type="checkbox"  ng-model="arrayOfStudents[key][0]" ng-change="toggleSelection()"> -->
+			</td>
+			
+
+		</tr>
+	</table>
+	<br>
+	<button type="button" ng-click="submitToServer()" class="button">Submit</button>
+    
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="markAttendance.js"></script>
+</body>
+</html>
+

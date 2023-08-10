@@ -1,0 +1,266 @@
+CREATE DATABASE IF NOT EXISTS `nodelogin` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `nodelogin`;
+show tables;
+
+select * from accounts;
+CREATE TABLE IF NOT EXISTS `accounts` (
+  `sapid` bigint(11) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`sapid`)
+);
+
+ALTER TABLE accounts ADD course varchar(255) NOT NULL;
+
+INSERT INTO `accounts` (`sapid`,`password`) VALUES (70022100101, '$2b$10$8ZU3feSmZHmPBe6UzQewzuhkqzevDfCaHhMq30/qTssTIJcaDccTi');
+INSERT INTO `accounts` (`sapid`,`password`) VALUES (70022100109, '$2b$10$03GmINrnXBvc1twlPooHtu3alfn.OijABAaOx.iTY0fND/5WW3usK');
+INSERT INTO `accounts` (`sapid`,`password`,role) VALUES (70022100110, '$2b$10$03GmINrnXBvc1twlPooHtu3alfn.OijABAaOx.iTY0fND/5WW3usK','T');
+
+INSERT INTO `accounts` (`sapid`,`password`,role,name, course) VALUES (70022100340, '$2b$10$03GmINrnXBvc1twlPooHtu3alfn.OijABAaOx.iTY0fND/5WW3usK','S','Ritam Dattaray','btce4');
+INSERT INTO `accounts` (`sapid`,`password`,role,name, course) VALUES (70022100342, '$2b$10$03GmINrnXBvc1twlPooHtu3alfn.OijABAaOx.iTY0fND/5WW3usK','S','Rajdeep Guha','btce4');
+INSERT INTO `accounts` (`sapid`,`password`,role,name, course) VALUES (70022100103, '$2b$10$03GmINrnXBvc1twlPooHtu3alfn.OijABAaOx.iTY0fND/5WW3usK','S','Parth Lele','btce4');
+INSERT INTO `accounts` (`sapid`,`password`,role,name, course) VALUES (70022100344, '$2b$10$03GmINrnXBvc1twlPooHtu3alfn.OijABAaOx.iTY0fND/5WW3usK','S','Vedant Heda','btce4');
+
+drop table accounts;
+SELECT * from accounts;
+SET SQL_SAFE_UPDATES = 1;
+UPDATE `accounts` SET `password` ='$2b$10$xXW2MEWqxs2d8Elhr4xR4uh41r9EaEgZKBNvvYHpCGZmGLw5ceRY2';
+--  WHERE sapid=70022100101;
+
+CREATE TABLE IF NOT EXISTS `teachers` (
+  `sapid` bigint(11) NOT NULL,
+  branchShortForm varchar(5) NOT NULL
+);
+
+INSERT INTO teachers VALUES(70022100110,'btce4');
+INSERT INTO teachers VALUES(70022100110,'btme6');
+
+INSERT INTO teachers VALUES(70022100110,'mbce4');
+
+SELECT * FROM teachers NATURAL JOIN branchNames;
+CREATE TABLE IF NOT EXISTS branchNames (
+	branchShortForm varchar(5) NOT NULL,
+    branchFullForm varchar(255) NOT NULL,
+    semesterNumber int(1)
+);
+INSERT INTO branchNames VALUES('btce4','BTECH COMPUTER ENGINEERING',4);
+INSERT INTO branchNames VALUES('btme6','BTECH MECHANICAL ENGINEERING',6);
+INSERT INTO branchNames VALUES('mbce4','MBA TECH COMPUTER ENGINEERING',4);
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+flush privileges;
+
+CREATE USER 'new_user'@'%' IDENTIFIED BY 'password';
+ALTER USER 'new_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
+
+CREATE DATABASE IF NOT EXISTS `btce4`;
+use btce4;
+show tables;
+
+CREATE TABLE IF NOT EXISTS `courses` (
+  `teacherName` varchar(255) NOT NULL,
+  `courseName` varchar(255) NOT NULL,
+  `shortForm` varchar(255) NOT NULL,
+  PRIMARY KEY (`shortForm`)
+);
+select * from courses;
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('SNA','Computer Organization and Architecture','COA');
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('VLG','Complex Variables and Transforms','CVT');
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('MTI','Theoretical Computer Science','TCS');
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('KJO','Microprocessor and Microcontroller','MPM');
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('SNA','Microprocessor and Microcontroller LAB B1','MP1');
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('VTH','Web Programming','WEB');
+INSERT INTO `courses` (`teacherName`,`courseName`,shortForm) VALUES ('VTH','Object Oriented Programming Using JAVA','OPJ');
+
+
+
+SELECT * FROM records NATURAL JOIN courses WHERE sapid='70022100109';
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `enrollment` (
+  `sapid` varchar(255) NOT NULL,
+  `shortForm` varchar(255) NOT NULL,
+  FOREIGN KEY (shortForm) REFERENCES courses(shortForm)
+);
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'COA');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'CVT');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'TCS');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'MPM');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'MP1');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'WEB');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100109,'OPJ');
+
+
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100103,'COA');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100340,'COA');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100342,'COA');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100344,'COA');
+
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100103,'MP1');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100340,'MP1');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100342,'MP1');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100344,'MP1');
+
+
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'COA');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'CVT');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'TCS');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'MPM');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'MP1');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'WEB');
+INSERT INTO `enrollment` (`sapid`,`shortForm`) VALUES (70022100101,'OPJ');
+
+
+
+CREATE TABLE IF NOT EXISTS `teachers` (
+  `sapid` varchar(255) NOT NULL,
+  `teacherName` varchar(255) NOT NULL,
+  `shortForm` varchar(255) NOT NULL,
+  FOREIGN KEY (shortForm) REFERENCES courses(shortForm)
+);
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100110,'SNA','COA');
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100111,'VLG','CVT');
+
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100110,'SNA','MP1');
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100112,'KJO','MPM');
+
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100113,'MTI','TCS');
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100114,'VTH','WEB');
+INSERT INTO `teachers` (`sapid`,`teacherName`,shortForm) VALUES (70022100115,'VTH','OPJ');
+
+
+CREATE TABLE IF NOT EXISTS lectures (
+  teacherName varchar(255) NOT NULL,
+  `shortForm` varchar(255) NOT NULL,
+	`status` varchar(255) NOT NULL DEFAULT 'A' ,
+    datee varchar(25) NOT NULL,
+    startTime varchar(10) NOT NULL,
+  FOREIGN KEY (shortForm) REFERENCES courses(shortForm)
+  );
+  
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime) VALUES ('SNA','COA','2023-03-15','14:00');
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime) VALUES ('SNA','COA','2023-03-29','14:00');
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','COA','2023-04-01','14:00','F');
+
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','MP1','2023-03-14','14:00','F');
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','MP1','2023-03-14','15:00','F');
+
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('MTI','TCS','2023-03-14','9:00','F');
+
+USE BTCE4;
+show tables;
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','COA','2023-04-09','9:00','F');
+
+
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','COA','2023-04-05','9:00','F');
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','MP1','2023-04-05','14:00','F');
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','MP1','2023-04-05','15:00','F');
+
+
+SELECT * FROM lectures;
+
+UPDATE lectures SET marked='F' where teacherName='SNA' and shortForm='COA' and datee='2023-04-01' and startTime='14:00';
+
+INSERT INTO `lectures` (`teacherName`,shortForm,datee,startTime,marked) VALUES ('SNA','COA','2023-04-04','09:00','F');
+DELETE FROM lectures WHERE datee='2023-04-03';
+
+ALTER TABLE lectures ADD marked varchar(1) Default 'F' ;
+SELECT * FROM lectures NATURAL JOIN teachers NATURAL JOIN courses;
+
+SELECT names.sapid,`name`,rollno  FROM enrollment NATURAL JOIN names WHERE shortForm ="COA";
+
+drop table records;
+CREATE TABLE IF NOT EXISTS `records` (
+  `sapid` varchar(255) NOT NULL,
+  `teacherName` varchar(255) NOT NULL,
+  `shortForm` varchar(255) NOT NULL,
+	`status` varchar(255) NOT NULL DEFAULT 'A' ,
+    datee varchar(25) NOT NULL,
+    startTime varchar(10) NOT NULL,
+  FOREIGN KEY (shortForm) REFERENCES courses(shortForm)
+
+);
+ truncate table records;
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','COA','P','2023-03-15','14:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','COA','P','2023-03-15','15:00');
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100101,'SNA','COA','P','2023-03-15','14:00');
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','COA','P','2023-02-16','09:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','COA','A','2023-02-16','09:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','COA','A','2023-01-23','09:00');
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VLG','CVT','A','2023-01-01','10:00');
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VLG','CVT','P','2023-02-02','14:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VLG','CVT','P','2023-02-09','14:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VLG','CVT','P','2023-02-16','14:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VLG','CVT','P','2023-02-23','14:00');
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'MTI','TCS','P','2023-02-23','9:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'MTI','TCS','P','2023-02-30','9:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'MTI','TCS','P','2023-02-16','9:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'MTI','TCS','A','2023-02-09','9:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'MTI','TCS','A','2023-02-02','9:00');
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VTH','OPJ','P','2023-02-04','10:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VTH','WEB','P','2023-02-05','14:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VTH','OPJ','P','2023-02-04','11:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'VTH','WEB','P','2023-02-05','15:00');
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'KJO','MPM','P','2023-02-05','16:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'KJO','MPM','P','2023-02-12','16:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'KJO','MPM','P','2023-02-19','16:00');
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','MP1','A','2023-02-06','10:00');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status,datee,startTime) VALUES (70022100109,'SNA','MP1','A','2023-02-13','11:00');
+
+
+
+
+
+
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status) VALUES (70022100109,'SNA','COA','A');
+INSERT INTO `records` (`sapid`,`teacherName`,shortForm,status) VALUES (70022100109,'VLG','CVT','A');
+
+select * from records where sapid=70022100109;
+SET SQL_SAFE_UPDATES = 0;
+UPDATE records SET status='P' where status='1';
+
+UPDATE lectures SET marked='F' where datee='2023-04-01';
+
+DELETE  FROM records WHERE datee='2023-04-01';
+
+drop table names;
+CREATE TABLE IF NOT EXISTS `names` (
+  `name` varchar(255) NOT NULL,
+  `sapid` varchar(255) NOT NULL,
+  rollno varchar(255) NOT NULL,
+  PRIMARY KEY (`sapid`)
+);
+
+INSERT INTO `names`  VALUES ('Raj Hariya', 70022100101,'B019');
+INSERT INTO `names` VALUES ('Aryan Jotwani', 70022100109,'B028');
+
+
+INSERT INTO `names` VALUES ('Parth Lele', 70022100103,'B034');
+INSERT INTO `names` VALUES ('Ritam Dattaray', 70022100340,'B011');
+INSERT INTO `names` VALUES ('Rajdeep Guha', 70022100342,'B017');
+INSERT INTO `names` VALUES ('Vedant Heda', 70022100344,'B020');
+
+
+SELECT names.sapid,`name`,names.rollno  FROM enrollment NATURAL JOIN names WHERE shortForm ="COA";
+
+
+
+
+

@@ -1,66 +1,67 @@
-body{
-	font-family: 'Rubik', sans-serif;
-	font-size: larger;   
-	background: linear-gradient(90deg, #D3CCE3, #E9E4F0) no-repeat;
-	background-attachment: fixed;
-   padding: 8px;
-   }
-nav {
-	background-color: #9c0505;
-	color: white;
-	padding: 0px;
-   border-radius: 50px;
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: larger;
+  background: linear-gradient(90deg, #d3cce3, #e9e4f0) no-repeat;
+  background-attachment: fixed;
+  padding: 8px;
 }
-nav ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	overflow: hidden;
-	background-color: #9c0505;
-	display: flex;
-	justify-content: flex-end;
-   border-radius: 50px;
+nav {
+  background-color: #9c0505;
+  color: white;
+  padding: 0px;
+  border-radius: 50px;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #9c0505;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 50px;
 }
 
 nav ul li {
-	/* margin-left: 20px; */
-	display: inline;   
+  /* margin-left: 20px; */
+  display: inline;
 }
-   
+
 nav ul li:first-child {
-	margin-left: 0;
+  margin-left: 0;
 }
-nav ul li a{
-	color:  white;
-	text-decoration: none;
-	list-style-type: none;
-	text-align: center;
-	display: block;
-	padding: 14px 16px;
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  display: block;
+  padding: 14px 16px;
 }
-   
+
 nav ul li a:hover {
-	background-color: #660101;
-   transition: all 250ms ease-in-out;
-   border-radius: 50px;
+  background-color: #660101;
+  transition: all 250ms ease-in-out;
+  border-radius: 50px;
 }
 h1 {
-	margin-top: 40px;
-	text-align: center;
+  margin-top: 40px;
+  text-align: center;
 }
 #attendance-stats {
-	background-color: whitesmoke;
-    width: 500px;
-    padding:20px;
-    margin: 65px auto;
-    display: -webkit-box;
-    display: flex;
-	text-align: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  background-color: #ff7426;
+  /* whitesmoke; */
+  width: 500px;
+  padding: 20px;
+  margin: 65px auto;
+  display: -webkit-box;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
 }
 /*
 table,td,tr,th {
@@ -77,40 +78,38 @@ th {
 */
 
 table {
-   box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
-   background-color: whitesmoke;
-   text-align: center;
-   border-collapse: collapse;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  background-color: whitesmoke;
+  text-align: center;
+  border-collapse: collapse;
 }
 
 thead {
-   box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
 }
 
 th {
-   padding: 1rem 2rem;
-   text-transform: uppercase;
-   letter-spacing: 0.1rem;
-   font-size: 0.7rem;
-   font-weight: 900;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  font-weight: 900;
 }
 
 td {
-   padding: 1rem 2rem;
+  padding: 1rem 2rem;
 }
 
-.red{
-   padding: 0.2rem 1rem;
-	background-color: #ffcdd2;
-   color: #c62828;
+.red {
+  padding: 0.2rem 1rem;
+  background-color: #ffcdd2;
+  color: #c62828;
 }
-.green{
-   padding: 0.2rem 1rem;
-   background-color: #c8e6c9;
-   color: #388e3c;
+.green {
+  padding: 0.2rem 1rem;
+  background-color: #c8e6c9;
+  color: #388e3c;
 }
-
-
 
 *,
 *:before,
@@ -123,12 +122,12 @@ td {
   height: 100vh;
   background: linear-gradient(#e8f0f7 50%, #4d5bf9 50%);
 } */
-#centerize{
-   padding-top: 15px;
-   display: inline-block;
-   text-align: center;
-   margin-left: auto;
-   margin-right: auto;
+#centerize {
+  padding-top: 15px;
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .circular-progress {
   position: relative;
@@ -148,8 +147,8 @@ td {
 }
 .value-container {
   position: relative;
-  font-family: 'Rubik', sans-serif;
-  font-size: larger;  
+  font-family: "Rubik", sans-serif;
+  font-size: larger;
   font-weight: 550;
   color: #231c3d;
 }

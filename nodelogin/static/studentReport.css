@@ -1,63 +1,68 @@
-body{
-	font-family: 'Rubik', sans-serif;
-	font-size: larger;   
-	background: linear-gradient(90deg, #D3CCE3, #E9E4F0) no-repeat;
-	background-attachment: fixed;
-   }
-nav {
-	background-color: #9c0505;
-	color: white;
-	padding: 0px;
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: larger;
+  background: linear-gradient(90deg, #d3cce3, #e9e4f0) no-repeat;
+  background-attachment: fixed;
+  justify-content: center;
 }
-nav ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	overflow: hidden;
-	background-color: #9c0505;
-	display: flex;
-	justify-content: flex-end;   
+nav {
+  background-color: #9c0505;
+  color: white;
+  padding: 0px;
+  border-radius: 50px;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #9c0505;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 50px;
 }
 
 nav ul li {
-	/* margin-left: 20px; */
-	display: inline;
-	 
-   
-   }
-   
-   nav ul li:first-child {
-	margin-left: 0;
-   }
-   nav ul li a{
-	color:  white;
-	text-decoration: none;
-	   list-style-type: none;
-	text-align: center;
-	display: block;
-	padding: 14px 16px;
-   }
-   
-   nav ul li a:hover {
-	background-color: #660101;
-   }
+  /* margin-left: 20px; */
+  display: inline;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  display: block;
+  padding: 14px 16px;
+  border-radius: 50px;
+}
+
+nav ul li a:hover {
+  background-color: #660101;
+  transition: all 250ms ease-in-out;
+}
 h1 {
-	margin-top: 40px;
-	text-align: center;
+  margin-top: 40px;
+  text-align: center;
 }
 #attendance-stats {
-	background-color: #ff7426;
-    width: 500px;
-    margin: 65px auto;
-    display: -webkit-box;
-    display: flex;
-	text-align: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  background-color: #ff7426;
+  /* whitesmoke; */
+  width: 500px;
+  margin: 65px auto;
+  display: -webkit-box;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
 }
+/*
 table,td,tr,th {
     border: 2px solid black;
     border-collapse: collapse;
@@ -71,36 +76,97 @@ tr:hover{
 	background-color: #660101;
 
 }
-
-
 th{
 	background-color: darkred;
 	color: white;
 }
+*/
 
+/*
 tr:not(:hover) {
 	background-color: #ff7426;
 }
+*/
 
-input{
-	font-family: 'Rubik', sans-serif;
-	padding: 0;
-	margin: 0;
-	width: 2px;
-
+input {
+  font-family: "Rubik", sans-serif;
+  padding: 12px 24px;
+  margin: 0;
+  width: 50%;
+  background-color: transparent;
+  transition: transform 250ms ease-in-out;
+  font-size: 14px;
+  line-height: 18px;
+  color: #9c0505;
+  border-radius: 50px;
+  border: 1px solid #9c0505;
+  transition: all 250ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
-input[type="text"] {
+
+input::placeholder {
+  color: #9c0505;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+input:focus,
+input:hover {
+  padding: 12px 0px;
+  outline: 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #9c0505;
+  border-radius: 0;
+}
+/*input[type="text"] {
     display: block;
-     width: calc(25% - 10px); /*20px [ left & Right ] padding + 4px border [ left & Right ]  */
+     width: calc(25% - 10px); /*20px [ left & Right ] padding + 4px border [ left & Right ]  
     font-size: 18px;
     font-weight: 600;
     color: #4b00ff;
     padding: 10px;
     border: 2px solid #4b00ff;
 }
-.red{
-	background-color: red;
+*/
+
+table {
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  background-color: whitesmoke;
+  text-align: center;
+  border-collapse: collapse;
 }
-.green{
-	background-color: rgb(18, 186, 18);
+
+thead {
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+
+th {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+td {
+  padding: 1rem 2rem;
+}
+
+.red {
+  border-radius: 0.2rem;
+  padding: 0.2rem 1rem;
+  background-color: #ffcdd2;
+  color: #c62828;
+}
+
+.green {
+  border-radius: 0.2rem;
+  padding: 0.2rem 1rem;
+  background-color: #c8e6c9;
+  color: #388e3c;
+}
+
+tr:nth-child(even) {
+  background-color: #eef1f6;
 }

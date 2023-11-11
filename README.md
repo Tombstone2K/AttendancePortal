@@ -2,7 +2,7 @@
 
 This project intended to create a useful as well as modern and beautiful attendance portal where the teachers can conveniently enter the attendance for the lectures, as well as the students who can easily keep track of their attendance including the live percentage in each subject as well as lecture-wise detailed attendance.
 
-# Software’s/Frameworks used ->
+# Frameworks used
 
 •	Angular JS
 

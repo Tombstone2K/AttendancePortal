@@ -5,45 +5,7 @@ body {
   background-attachment: fixed;
   justify-content: center;
 }
-nav {
-  background-color: #9c0505;
-  color: white;
-  padding: 0px;
-  border-radius: 50px;
-}
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #9c0505;
-  display: flex;
-  justify-content: flex-end;
-  border-radius: 50px;
-}
 
-nav ul li {
-  /* margin-left: 20px; */
-  display: inline;
-}
-
-nav ul li:first-child {
-  margin-left: 0;
-}
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  list-style-type: none;
-  text-align: center;
-  display: block;
-  padding: 14px 16px;
-  border-radius: 50px;
-}
-
-nav ul li a:hover {
-  background-color: #660101;
-  transition: all 250ms ease-in-out;
-}
 h1 {
   margin-top: 40px;
   text-align: center;
@@ -62,31 +24,6 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
 }
-/*
-table,td,tr,th {
-    border: 2px solid black;
-    border-collapse: collapse;
-}
-td,th{
-    padding: 15px;
-}
-
-tr:hover{
-	color: white;
-	background-color: #660101;
-
-}
-th{
-	background-color: darkred;
-	color: white;
-}
-*/
-
-/*
-tr:not(:hover) {
-	background-color: #ff7426;
-}
-*/
 
 input {
   font-family: "Rubik", sans-serif;
@@ -119,16 +56,6 @@ input:hover {
   border-bottom: 1px solid #9c0505;
   border-radius: 0;
 }
-/*input[type="text"] {
-    display: block;
-     width: calc(25% - 10px); /*20px [ left & Right ] padding + 4px border [ left & Right ]  
-    font-size: 18px;
-    font-weight: 600;
-    color: #4b00ff;
-    padding: 10px;
-    border: 2px solid #4b00ff;
-}
-*/
 
 table {
   box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);

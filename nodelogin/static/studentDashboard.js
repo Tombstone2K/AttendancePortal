@@ -1,3 +1,4 @@
+// Fetch Subject List and Attendance Details for Student Dashboard
 function formatDate(dateStr) {
     const dateParts = dateStr.split("-");
     const year = parseInt(dateParts[0], 10);

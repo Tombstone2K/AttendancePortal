@@ -3,12 +3,11 @@
 <head>
 	<title>Branch Select</title>
 	<link rel="stylesheet" type="text/css" href="/teacherBranchSelect.css">
+	<link href="/nav_bar.css" rel="stylesheet" type="text/css">
 </head>
 <body ng-app="myApp" ng-controller="myCtrl" >
 	<nav>
 		<ul>
-            <!-- <li><a href="/attendance">View TEMP</a></li>
-			<li><a href="/report">G</a></li> -->
             <li><a href="/changePassword">Change Password</a></li>
 			<li><a href="/logout">Logout</a></li>
 		</ul>
@@ -21,51 +20,10 @@
     <form ng-submit="submitForm()">
         <div class="custom-select">
             <select required ng-model="selectedBranch" ng-options="option.branchFullForm + ' - Sem ' + option.semesterNumber for option in branchInfo"></select>
-            <!-- <span class="arrow"></span> -->
         </div>
         <br><br>
         <button type="submit" class="button" ng-disabled="!selectedBranch" ng-class="{'disabled-button': !selectedBranch,'enabled-button': selectedBranch}" >Submit</button> 
-        <!-- ng-class="{'disabled-button': !selectedBranch,'enabled-button': selectedBranch}">Submit</button> -->
     </form>
-
-    <!-- <table>
-        <tr>
-            <th>Subject Name</th>
-            <th>Present</th>
-            <th>Total</th>
-            <th>Percentage</th>
-        </tr>
-        <tr ng-repeat="(key,value) in arrayOfSubjects" ng-class="getValueClass(value)">
-            <td>{{ key }}</td>
-            <td>{{ value[0] }}</td>
-            <td>{{ value[1] }}</td>
-            <td>{{ value[0]/value[1]*100 |number:2 }}%</td>
-        </tr>
-    </table>
-    <br><Br><br>
-    <div ng-show="False">
-        <input type="text" ng-model="filterText" placeholder="Search">
-        <br><br><br>
-        <table>
-            <tr>
-                <th>SAP ID</th>
-                <th>Teacher</th>
-                <th>Subject</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th>startTime</th>
-            </tr>
-            <tr ng-repeat="data in attendanceRecords | filter:filterText |orderBy:datee">
-                <td>{{data.sapid}}</td>
-                <td>{{data.teacherName}}</td>
-                <td>{{data.shortForm}}</td>
-                <td>{{data.status}}</td>
-                <td>{{data.textDate}}</td>
-                <td>{{data.startTime}}</td>
-            </tr>
-        </table>
-    </div>
-     -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 	<script src="teacherBranchSelect.js"></script>

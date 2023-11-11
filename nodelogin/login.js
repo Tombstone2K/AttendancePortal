@@ -1,3 +1,4 @@
+// Imports
 const mysql = require('mysql');
 const express = require('express');
 const session = require('express-session');
@@ -5,6 +6,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { request } = require('http');
 
+// SQL connection
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'new_user',
@@ -14,11 +16,6 @@ const connection = mysql.createConnection({
 });
 
 const app = express();
-
-// const EventEmitter = require('events');
-// class MyEmitter extends EventEmitter {}
-// const myEmitter = new MyEmitter();
-
 
 
 app.use(session({
@@ -60,8 +57,7 @@ app.post('/auth', function(request, response) {
 	// Capture the input fields
 	let sapid = request.body.sapid;
 	let password = request.body.password;
-	//const hash = bcrypt.hashSync("pass@123", 10);
-	//console.log(hash);
+
 	// Ensure the input fields exists and are not empty
 	if (sapid && password) {
 		// Execute SQL query that'll select the account from the database based on the specified username and password
@@ -73,9 +69,12 @@ app.post('/auth', function(request, response) {
 			if(results[0]){
 				console.log(results[0].password);
 				//console.log(fields);
-				var resulttt = bcrypt.compareSync(password, results[0].password);
+
+				// Compare user entered password with encrypted password in DB
+				var passwordMatch = bcrypt.compareSync(password, results[0].password);
+
 				// If the account exists
-				if (results.length > 0 && resulttt) {
+				if (results.length > 0 && passwordMatch) {
 					// Authenticate the user
 					request.session.loggedin = true;
 					request.session.sapid = sapid;
@@ -119,6 +118,7 @@ app.post('/auth', function(request, response) {
 	}
 });
 
+// Redirect user to home page is user is student or teacher page
 app.get('/redirect', function(request, response) {
 	if (request.session.role=='S'){
 		response.redirect('/home');
@@ -157,8 +157,7 @@ app.post('/submitNewPassword', function(request, response) {
 	let npass1 = request.body.npass1;
 	let npass2 = request.body.npass2;
 
-	//const hash = bcrypt.hashSync("pass@123", 10);
-	//console.log(hash);
+
 	// Ensure the input fields exists and are not empty
 	if (epass && npass1 && npass1 ===npass2) {
 		// Execute SQL query that'll select the account from the database based on the specified username and password
@@ -179,10 +178,6 @@ app.post('/submitNewPassword', function(request, response) {
 					response.redirect('/yesChange');
 
 				});
-
-
-				
-
 				// response.redirect('/home');
 
 				// Redirect to home page
@@ -198,11 +193,11 @@ app.post('/submitNewPassword', function(request, response) {
 	}
 });
 
+// API for fetching student list
 app.get('/api/studentList', function(request, response) {
 
 	connection.changeUser({ database: request.session.course }, function(err) {
 		if (err) throw err;
-		console.log('Switched TTOO '+request.session.course);
 	});
 
 	connection.query('SELECT names.sapid,`name`,rollno  FROM enrollment NATURAL JOIN names WHERE shortForm =?;',[request.session.lecDetails.shortForm], (error, results, fields) => {
@@ -211,12 +206,12 @@ app.get('/api/studentList', function(request, response) {
             response.status(500).send('An error occurred. Please try again later.');
             return;
         }
-		console.log(results);
+		// console.log(results);
 		response.json(results);
 	});
 });
 
-
+// API to fetch subject list
 app.get('/api/subjectList', function(request, response) {
 
 	connection.changeUser({ database: 'btce4' }, function(err) {
@@ -235,7 +230,7 @@ app.get('/api/subjectList', function(request, response) {
 	});
 });
 
-
+// API to fetch attendance details
 app.get('/api/attendance', function(request, response) {
 
 	connection.changeUser({ database: 'btce4' }, function(err) {
@@ -254,6 +249,7 @@ app.get('/api/attendance', function(request, response) {
 	});
 });
 
+// API to fetch branch list
 app.get('/api/getBranchList', function(request, response) {
 
 	connection.changeUser({ database: 'nodelogin' }, function(err) {
@@ -272,6 +268,8 @@ app.get('/api/getBranchList', function(request, response) {
 	});
 });
 
+
+// API to fetch lecture details
 app.get('/api/getLectureData', function(request, response) {
 
 	connection.changeUser({ database: request.session.branchName.branchShortForm }, function(err) {
@@ -312,6 +310,7 @@ app.get('/home', function(request, response) {
 	
 });
 
+// Page to show attendance report to student
 app.get('/report', function(request, response) {
 	response.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 	response.header('Expires', '-1');
@@ -330,6 +329,7 @@ app.get('/report', function(request, response) {
 	
 });
 
+// Page to mark attendance (used by teacher)
 app.get('/markAttendance', function(request, response) {
 	response.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 	response.header('Expires', '-1');
@@ -346,6 +346,7 @@ app.get('/markAttendance', function(request, response) {
 	
 });
 
+// Home page of the teacher
 app.get('/teacher', function(request, response) {
   
 	if (request.session.loggedin && request.session.role==='T') {
@@ -365,6 +366,7 @@ app.get('/teacher', function(request, response) {
 	
 });
 
+// Page to select which lecture's attendance is to be marked
 app.get('/selectLecture', function(request, response) {
   
 	if (request.session.loggedin && request.session.role==='T' && request.session.checkPoint1 === true) {
@@ -381,6 +383,8 @@ app.get('/selectLecture', function(request, response) {
 	
 });
 
+// Routes to submit data to SQL DB
+
 app.post('/submitBranch', (request, response) => {
 
 	if (request.session.loggedin && request.session.role==='T') {
@@ -390,14 +394,12 @@ app.post('/submitBranch', (request, response) => {
 		console.log("HELLO");
 		request.session.checkPoint1 = true;
 		response.render('teacherSubjectSelect.ejs',{ branchh:request.session.branchName });
-		// response.end();	
 		  	
 	} else {
 		request.session.destroy();
 		response.redirect('/');
 	}
-	
-	// response.send('Data received!');
+
 });
 
 app.post('/submitLecture', (request, response) => {
@@ -406,8 +408,7 @@ app.post('/submitLecture', (request, response) => {
 		console.log(request.body);
 		request.session.lecDetails = request.body;
 		request.session.checkPoint2 = true;
-		// console.log(request.session.branchName);
-		// console.log("HELLO");
+
 		response.render('markAttendance.ejs',{ coursee:request.session.lecDetails.courseName });
 		  	
 	} else {
@@ -471,18 +472,6 @@ app.post('/submitAttendance', function(request, response) {
 	request.session.checkPoint2 = false;
 	response.render('teacherSubjectSelect.ejs',{ branchh:request.session.branchName });
 
-
-
-
-
-	// connection.query('SELECT * FROM teachers NATURAL JOIN lectures NATURAL JOIN courses WHERE sapid =? and datee=?;',[request.session.sapid,today], (error, results, fields) => {
-	// 	if (error) {
-    //         console.error(error);
-    //         response.status(500).send('An error occurred. Please try again later.');
-    //         return;
-    //     }
-		
-	// });
 });
 
 app.get('/logout', function(request, response) {

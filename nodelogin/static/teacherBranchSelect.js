@@ -1,3 +1,4 @@
+f// Fetch all branches associated with the teacher and pass on teacher's branch choice to select Lecture
 function formatDate(dateStr) {
     const dateParts = dateStr.split("-");
     const year = parseInt(dateParts[0], 10);
@@ -31,13 +32,7 @@ app.controller('myCtrl', function($scope, $http,$location,$window) {
     $http.get('/api/getBranchList').then(function(response) {
       // First HTTP request success callback function
       $scope.branchInfo = response.data;
-      // $scope.arrayOfSubjects = {};
 
-
-      //   for (let i = 0; i < $scope.subjectList.length; i++) {
-      //       $scope.arrayOfSubjects[$scope.subjectList[i].shortForm] = [0,0];
-            
-      //   }
     }).catch(function(error) {
       console.log(error);
     });
@@ -53,17 +48,5 @@ app.controller('myCtrl', function($scope, $http,$location,$window) {
           console.log('Error occurred while making HTTP request:', error);
         });
     };
-    
-
-    // $scope.submitForm = function() {
-    //   $http.post('/submitBranch', $scope.selectedBranch);
-    //   var currentUrl = $location.absUrl();
-    //   var newUrl = currentUrl.replace('/teacher', '/success');
-    //   $window.location.href = newUrl;
-    // }
-    
-    
-
-
 });
 

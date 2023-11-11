@@ -6,54 +6,13 @@
 }
 
 body {
-    /* background-image: url("gradient.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative; */
     background: linear-gradient(90deg, #D3CCE3, #E9E4F0) no-repeat;
     background-attachment: fixed;
     font-family: 'Rubik', sans-serif;
     padding: 8px;
 }
-nav {
-	background-color: #9c0505;
-	color: white;
-	padding: 0px;
-    font-size: larger;
-}
-nav ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	overflow: hidden;
-	background-color: #9c0505;
-	display: flex;
-	justify-content: flex-end;   
-}
 
-nav ul li {
-	/* margin-left: 20px; */
-	display: inline;
-	 
-   
-   }
-   
-   nav ul li:first-child {
-	margin-left: 0;
-   }
-   nav ul li a{
-	color:  white;
-	text-decoration: none;
-	   list-style-type: none;
-	text-align: center;
-	display: block;
-	padding: 14px 16px;
-   }
-   
-   nav ul li a:hover {
-	background-color: #660101;
-   }
+
 /* Login Form Styles */
 
 .login {
@@ -99,23 +58,6 @@ nav ul li {
         linear-gradient(90deg, #222222, #222222) center bottom/0 2px no-repeat,
         linear-gradient(90deg, #ccc, #ccc) left bottom/100% 2px no-repeat;
     pointer-events: auto;
-}
-
-/* .login .input-field #sapid ~ .focus-border {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #4caf50;
-    transition: 0.4s;
-}
-
-#sapid:focus ~ .focus-border,
-.has-content#sapid ~ .focus-border {
-    width: 100%;
-    transition: 0.4s;
-    left: 0;
 }
 
 #sapid ~ label {

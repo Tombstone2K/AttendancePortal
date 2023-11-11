@@ -1,3 +1,4 @@
+// Fetch all subject taught by the teacher in that branch
 function formatDate(dateStr) {
     const dateParts = dateStr.split("-");
     const year = parseInt(dateParts[0], 10);
@@ -34,13 +35,7 @@ app.controller('myCtrl', function($scope, $http,$location,$window) {
       if($scope.lectureInfo.length===0){
         $scope.nullFlag = true;
       }
-      // $scope.arrayOfSubjects = {};
 
-
-      //   for (let i = 0; i < $scope.subjectList.length; i++) {
-      //       $scope.arrayOfSubjects[$scope.subjectList[i].shortForm] = [0,0];
-            
-      //   }
     }).catch(function(error) {
       console.log(error);
     });
@@ -59,21 +54,5 @@ app.controller('myCtrl', function($scope, $http,$location,$window) {
       });
 
     };
-
-    // $scope.submitForm = function() {
-    //   $http.post('/submitBranch', $scope.selectedBranch);
-    //   // .then(function(response) {
-    //   //   console.log(response.data);
-    //   // }, function(error) {
-    //   //   console.log(error);
-    //   // });
-
-    //   // console.log("Selected option:", $scope.selectedOption);
-    //   // Add any other actions here, such as submitting the form data to a server
-    // }
-    
-    
-
-
 });
 

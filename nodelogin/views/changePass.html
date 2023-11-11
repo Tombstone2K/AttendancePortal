@@ -3,14 +3,14 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
 		<title>Change Password</title>
-        <link href="/changePass.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
+        <link href="/changePass.css" rel="stylesheet" type="text/css">
+		<link href="/nav_bar.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
     <body  ng-app="myModule" ng-controller="myController">
         <nav>
             <ul>
-                <!-- <li><a href="/attendance">View TEMP</a></li>
-                <li><a href="/report">G</a></li> -->
                 <li><a href="/redirect">Home</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
@@ -40,33 +40,7 @@
 				<div class="action">
 				  <button type="submit" ng-disabled="passwordForm.$invalid">Submit</button>
 				</div>
-			  </form>
-			  
-			<!-- <form name="MyForm" action="/submitNewPassword" method="post">
-				<h1>Change Password</h1>
-				<div class="content">
-					<div class="input-field">
-						<input type="password" name="epass" id="epass" placeholder="" required>
-						<span class="placeholder">Existing Password</span>
-						<span class="focus-border"></span>
-					</div>
-					<div class="input-field">
-						<input type="password" name="npass1" id="npass1" placeholder="" ng-required="true" ng-pattern="/^[A-Za-z]{1}[A-Za-z0-9_]{6,19}$/">
-						<span class="placeholder">New Password</span>
-						<span class="focus-border"></span>
-					</div>
-                    <div class="input-field">
-						<input type="password" name="npass2" id="npass2" placeholder="" required>
-						<span class="placeholder">Reconfirm New Password</span>
-						<span class="focus-border"></span>
-					</div>
-					<span ng-show="passwordForm.npass1.$valid && passwordForm.npass2.$valid && npass1 !== npass2">Passwords do not match</span>
-				</div>
-				<div class="action">
-					<button type="submit" ng-disabled="MyForm.$invalid">Submit</button>
-				</div>
-			</form> -->
-			
+			  </form>			
 		</div>
 		<script>
 			var app = angular.module("myModule", []);

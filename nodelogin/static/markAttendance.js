@@ -1,4 +1,4 @@
-
+// Fetch Student List and Submit Attendance Details
 
 var app = angular.module('myApp', []);
 

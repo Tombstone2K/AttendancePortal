@@ -6,56 +6,12 @@
 }
 
 body {
-    /* background-image: url("gradient.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative; */
     background: linear-gradient(90deg, #D3CCE3, #E9E4F0) no-repeat;
     background-attachment: fixed;
     font-family: 'Rubik', sans-serif;
     padding:8px;
 }
-nav {
-   height: 8%;
-	background-color: #9c0505;
-	color: white;
-	padding: 0px;
-    font-size: large;
-}
-nav ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	overflow: hidden;
-	background-color: #9c0505;
-	display: flex;
-	justify-content: flex-end;   
-}
 
-nav ul li {
-	/* margin-left: 20px; */
-	display: inline;
-	 
-   
-   }
-   
-   nav ul li:first-child {
-	margin-left: 0;
-   }
-   nav ul li a{
-	color:  white;
-	text-decoration: none;
-	   list-style-type: none;
-	text-align: center;
-	display: block;
-	padding: 14px 16px;
-   }
-   
-   nav ul li a:hover {
-	background-color: #660101;
-   }
-/* Login Form Styles */
 #message{
    margin-left: auto;
    margin-right: auto;

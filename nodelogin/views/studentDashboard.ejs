@@ -3,6 +3,7 @@
 <head>
 	<title>Attendance Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="/studentDashboard.css">
+    <link href="/nav_bar.css" rel="stylesheet" type="text/css">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -11,7 +12,6 @@
 <body ng-app="myApp" ng-controller="myCtrl" >
 	<nav>
 		<ul>
-            <!-- <li><a href="/attendance">View TEMP</a></li> -->
             <li><a href="/report">View Detailed Attendance</a></li>
 			<li><a href="/changePassword">Change Password</a></li>
 			<li><a href="/logout?random=<%= Math.random() %>">Logout</a></li>
@@ -20,8 +20,6 @@
 	<h1>Attendance Dashboard</h1>
 	<div id="attendance-stats">
 		<p>Name: <%= fullName %>  <br>Sap id: <%= sap %> <br>
-            <!-- <br> You have attended {{ attendancePercentage | number:2}}% of your classes this semester. 
-            <br> Defaulter: {{status}} -->
         </p>
         <div id="centerize">
             <div class="circular-progress">

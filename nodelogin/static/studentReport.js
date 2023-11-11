@@ -1,3 +1,4 @@
+// Generate Deatiled Attendance Report with lecture wise attendance details
 function formatDate(dateStr) {
     const dateParts = dateStr.split("-");
     const year = parseInt(dateParts[0], 10);

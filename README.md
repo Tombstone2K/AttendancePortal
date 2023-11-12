@@ -15,13 +15,21 @@ This project intended to create a useful as well as modern and beautiful attenda
 
 # Screenshots
 
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/02cc4ca8-5c80-4d0b-a41b-57aefc70373c)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/15ea31f9-c33a-40c2-a361-9da19da2f12e)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/6dfd2abe-0b92-425a-a097-2c3c9c653273)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/5d4b6d40-7758-4481-b8d3-2caba70f60f9)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/29da953e-3135-40af-a87b-fd6b373bcfec)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/48b4c915-e06e-49bb-b9e5-cc3ebe71b843)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/f0736047-e88a-465e-a218-4b351fbe6b1e)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/fc1a5c83-4c73-41d2-9a6b-e91673016c6e)
-![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/5f6281d1-9ff7-4e80-a776-8a6542a70a8b)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/d9e67713-3108-47ec-8c74-45fbfa7568cb)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/b8145401-ae2e-42b2-b80c-5c14f6f57868)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/9731d00f-4ebc-467b-a64b-4e45243255b3)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/3ae5e485-c037-43a9-899a-f0379a491114)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/08431ae6-b454-485f-b0ac-6ddd8ffcbcfa)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/dbe037bc-b674-4581-9def-6d43a8c84371)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/7a6cd97f-befc-4661-809b-20250c0f0fa8)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/3e25e13d-c29f-4d66-b560-621e296b27ec)
+![image](https://github.com/Tombstone2K/AttendancePortal/assets/74809929/07fbfc48-f69c-4a18-aa23-dea05810bc06)
+
+
+
+
+
+
+
+
 
